@@ -6,7 +6,7 @@
 /*   By: jezambra <jezambra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 23:44:05 by jezambra          #+#    #+#             */
-/*   Updated: 2026/02/05 21:14:34 by jezambra         ###   ########.fr       */
+/*   Updated: 2026/02/05 22:31:17 by jezambra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,18 @@ static int	types(char t, va_list arg)
 	else if (t == 'x' || t == 'X')
 		i = ft_printf_hexa(va_arg(arg, unsigned int), t);
 	else if (t == 'p')
-		i = ft_printf_ptr();
+		i = ft_printf_ptr(va_arg(arg, void *));
 	return (i);
-	 
 }
+
 int	ft_printf(char const *format, ...)
 {
 	va_list	arg;
-	int	i;
-	int	count;
-	int	ctrl;
+	int		i;
+	int		count;
+	int		ctrl;
 
-	if(!format)
+	if (!format)
 		return (-1);
 	va_start(arg, format);
 	i = 0;
@@ -51,7 +51,7 @@ int	ft_printf(char const *format, ...)
 	while (format[i])
 	{
 		if (format[i] != '%')
-			count = count + ft_printf_chr(format[i]);
+			count = count + write(1, &format[i], 1);
 		else
 		{
 			ctrl = types(format[++i], arg);

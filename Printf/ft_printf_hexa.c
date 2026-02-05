@@ -6,7 +6,7 @@
 /*   By: jezambra <jezambra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 23:42:18 by jezambra          #+#    #+#             */
-/*   Updated: 2026/02/05 21:04:25 by jezambra         ###   ########.fr       */
+/*   Updated: 2026/02/05 22:26:20 by jezambra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_printf_hexa(unsigned int nbr, char s)
 {
 	char	*base_16;
-	int	count;
+	int		count;
 
 	if (s == 'X')
 		base_16 = "0123456789ABCDEF";
