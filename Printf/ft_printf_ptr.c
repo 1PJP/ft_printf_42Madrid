@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfchr.c                                     :+:      :+:    :+:   */
+/*   ft_printf_ptr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jezambra <jezambra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/30 18:38:54 by jezambra          #+#    #+#             */
-/*   Updated: 2026/02/02 00:01:23 by jezambra         ###   ########.fr       */
+/*   Created: 2026/02/04 23:38:40 by jezambra          #+#    #+#             */
+/*   Updated: 2026/02/05 13:46:04 by jezambra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
-int	ft_printfchr(int c)
+int	ft_printf_ptr(void *ptr)
 {
-	write(1, &c, 1);
-	return (1);
+	
 }
-/*int	main(void)
-{
-	int	ch;
-	
-	ch = 'a';
-	
-	ft_printfchr(ch);
-	return (0);	
-}*/

@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.h                                         :+:      :+:    :+:   */
+/*   ft_printf_chr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jezambra <jezambra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/30 18:37:14 by jezambra          #+#    #+#             */
-/*   Updated: 2026/02/04 16:20:52 by jezambra         ###   ########.fr       */
+/*   Created: 2026/01/30 18:38:54 by jezambra          #+#    #+#             */
+/*   Updated: 2026/02/05 17:04:21 by jezambra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "ft_printf.h"
 
-# include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-int	ft_printfchr(int c);
-int	ft_printstr(const char *s);
-
-
-
-#endif
+int	ft_printf_chr(int c)
+{
+	write(1, &c, 1);
+	return (1);
+}
+/*#include <stdio.h>
+int	main(void)
+{
+	char	ch;
+	
+	ch = 'J';
+	
+	ft_printf_chr(ch);
+	ft_printf_chr('\n');
+	printf("%c\n", ch);
+	return (0);	
+}*/
