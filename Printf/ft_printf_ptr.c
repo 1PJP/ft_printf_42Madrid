@@ -6,7 +6,7 @@
 /*   By: jezambra <jezambra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 23:38:40 by jezambra          #+#    #+#             */
-/*   Updated: 2026/02/05 22:21:58 by jezambra         ###   ########.fr       */
+/*   Updated: 2026/02/06 00:45:53 by jezambra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ int	ft_printf_ptr(void *ptr)
 	i = i + hexa_ptr(p);
 	return (i);
 }
-#include <stdio.h>
+/*#include <stdio.h>
 #include "ft_printf.h"
-
 int	main(void)
 {
 	int str;
@@ -59,4 +58,4 @@ int	main(void)
 	printf("origin = %p\n", NULL);
 
 	return (0);
-}
+}*/

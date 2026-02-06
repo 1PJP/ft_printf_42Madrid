@@ -6,7 +6,7 @@
 /*   By: jezambra <jezambra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 23:44:05 by jezambra          #+#    #+#             */
-/*   Updated: 2026/02/05 22:31:17 by jezambra         ###   ########.fr       */
+/*   Updated: 2026/02/06 00:05:31 by jezambra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,18 @@ int	ft_printf(char const *format, ...)
 	va_start(arg, format);
 	i = 0;
 	count = 0;
-	while (format[i])
+	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
 			count = count + write(1, &format[i], 1);
 		else
 		{
 			ctrl = types(format[++i], arg);
-			if (ctrl == -1)
-			{
-				va_end (arg);
-				return (-1);
-			}
+//			if (ctrl == -1)
+//			{
+//				va_end (arg);
+//				return (-1);
+//			}
 			count = count + ctrl;
 		}
 		i++;
