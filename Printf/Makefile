@@ -6,9 +6,12 @@
 #    By: jezambra <jezambra@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/30 17:47:17 by jezambra          #+#    #+#              #
-#    Updated: 2026/02/06 01:03:27 by jezambra         ###   ########.fr        #
+#    Updated: 2026/02/06 15:33:52 by jezambra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+GREEN := \033[0;32m
+RED := \033[31m
 
 #name file
 NAME = libftprintf.a
@@ -44,7 +47,7 @@ all: $(NAME)
 #rule for make library
 $(NAME): $(OBJ)
 	$(AR) $@ $^
-
+	@echo "${GREEN} $(NAME) Created."
 #all file .c to .o
 %.o: %.c $(INCLUDE)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -52,10 +55,12 @@ $(NAME): $(OBJ)
 #rule for delete everything .o
 clean:
 	$(RM) $(OBJ)
-
+	@echo "${RED} Deleted Objets."
+	
 #rule for delete everything .o and .a
 fclean: clean
 	$(RM) $(NAME)
-
+	@echo "${RED} Deleted Library."
+	
 #rule for recompile everything
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: jezambra <jezambra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 23:38:40 by jezambra          #+#    #+#             */
-/*   Updated: 2026/02/06 00:45:53 by jezambra         ###   ########.fr       */
+/*   Updated: 2026/02/06 14:50:51 by jezambra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int	hexa_ptr(unsigned long nbr)
 {
+	int		count;
 	char	*base_16;
-	int	count;
-	
+
 	base_16 = "0123456789abcdef";
 	count = 0;
 	if (nbr >= 16)
@@ -24,10 +24,12 @@ static int	hexa_ptr(unsigned long nbr)
 	count += ft_printf_chr(base_16[nbr % 16]);
 	return (count);
 }
+
 int	ft_printf_ptr(void *ptr)
 {
 	unsigned long	p;
-	int	i;
+	int				i;
+
 	if (ptr == NULL)
 		return (ft_printf_str("(nil)"));
 	i = 0;

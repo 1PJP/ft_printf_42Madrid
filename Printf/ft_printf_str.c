@@ -6,7 +6,7 @@
 /*   By: jezambra <jezambra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 16:14:22 by jezambra          #+#    #+#             */
-/*   Updated: 2026/02/06 01:03:20 by jezambra         ###   ########.fr       */
+/*   Updated: 2026/02/06 14:51:52 by jezambra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 int	ft_printf_str(char *str)
 {
 	int	i;
-	
-	if(!str)
+
+	if (!str)
 		return (write(1, "(null)", 6));
 	i = 0;
 	while (str[i])
-		{
-			write(1, &str[i], 1);
-			i++;
-		}
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 	return (i);
 }
 /*#include <stdio.h>

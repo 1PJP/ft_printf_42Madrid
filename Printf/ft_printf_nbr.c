@@ -6,7 +6,7 @@
 /*   By: jezambra <jezambra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 00:27:23 by jezambra          #+#    #+#             */
-/*   Updated: 2026/02/06 01:03:16 by jezambra         ###   ########.fr       */
+/*   Updated: 2026/02/06 14:48:32 by jezambra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_printf_nbr(int n)
 {
 	long	ch;
-	int	i;
+	int		i;
 
 	ch = (long )n;
 	i = 0;

@@ -1,83 +1,112 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jezambra <jezambra@student.42madrid.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/05 22:56:05 by jezambra          #+#    #+#             */
-/*   Updated: 2026/02/06 01:02:19 by jezambra         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "ft_printf.h"
+/*#include "ft_printf.h"
 #include <stdio.h>
+#include <limits.h>
 
-int main(void)
+int	main(void)
 {
-	int n;
-	int *ptr;
-	char c;
-	char *str;
-	unsigned int unsig;
+	int		ret_ft;
+	int		ret_pf;
+	char	*str_null;
+	int		a;
 
-	n = 42;
-	ptr = &n;
-	c = 'A';
-	str = "Hola";
-	unsig = 4294967295;
+	str_null = NULL;
+	a = 42;
 
-	// case for %c
-	ft_printf("ft_printf %%c: %c\n", c);
-	printf("printf    %%c: %c\n\n", c);
 
-	// case for %s
-	ft_printf("ft_printf %%s: %s\n", str);
-	printf("printf    %%s: %s\n", str);
-	ft_printf("ft_printf %%s NULL: %s\n", NULL);
-	printf("printf    %%s NULL: %s\n\n", NULL);
+	//0 control in case there is no managed format
+	printf("Test format unknown example %%j\n");
+	ret_ft = ft_printf("ft : hello %j crack\n");
+	ret_pf = printf("pf : hello %j crack\n");
+	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
 
-	// case for %d and %i
-	ft_printf("ft_printf %%d: %d\n", n);
-	printf("printf    %%d: %d\n", n);
-	ft_printf("ft_printf %%d negativo: %d\n", -n);
-	printf("printf    %%d negativo: %d\n", -n);
-	ft_printf("ft_printf %%i: %i\n", n);
-	printf("printf    %%i: %i\n", n);
-	ft_printf("ft_printf %%i negativo: %i\n", -n);
-	printf("printf    %%i negativo: %i\n\n", -n);
+	// 1 NULL format
+	printf("Test 1 = Format NULL\n");
+	ret_ft = ft_printf(NULL);
+	printf("ft_printf(NULL) return = %d (expected -1)\n\n", ret_ft);
 
-	// case for %u
-	ft_printf("ft_printf %%u: %u\n", unsig);
-	printf("printf    %%u: %u\n", unsig);
-	ft_printf("ft_printf %%u 0: %u\n", 0);
-	printf("printf    %%u 0: %u\n\n", 0);
+	// 2  %%c 
+	printf("Test 2 = %%c\n");
+	ret_ft = ft_printf("ft : %c\n", 'Z');
+	ret_pf = printf("pf : %c\n", 'Z');
+	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
 
-	// case for %x and %X
-	ft_printf("ft_printf %%x: %x\n", unsig);
-	printf("printf    %%x: %x\n", unsig);
-	ft_printf("ft_printf %%X: %X\n", unsig);
-	printf("printf    %%X: %X\n", unsig);
-	ft_printf("ft_printf %%x 0: %x\n", 0);
-	printf("printf    %%x 0: %x\n", 0);
-	ft_printf("ft_printf %%X 0: %X\n", 0);
-	printf("printf    %%X 0: %X\n\n", 0);
+	// 3 %%s normal / empty / NULL 
+	printf("Test 3 = %%s normal\n");
+	ret_ft = ft_printf("ft : %s\n", "spasiva !");
+	ret_pf = printf("pf : %s\n", "spasiva !");
+	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
 
-	// case for %p
-	ft_printf("ft_printf %%p: %p\n", ptr);
-	printf("printf    %%p: %p\n", ptr);
-	ft_printf("ft_printf %%p NULL: %p\n", NULL);
-	printf("printf    %%p NULL: %p\n\n", NULL);
+	printf("Test 4 = %%s empty\n");
+	ret_ft = ft_printf("ft : %s\n", "");
+	ret_pf = printf("pf : %s\n", "");
+	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
 
-	// case for %%
-	ft_printf("ft_printf %% porcentaje: %%\n");
-	printf("printf    %% porcentaje: %%\n\n");
+	printf("Test 5 = %%s NULL\n");
+	ret_ft = ft_printf("ft : %s\n", str_null);
+	ret_pf = printf("pf : %s\n", str_null);
+	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
 
-	// convicted cases and multiple %%
-	ft_printf("ft_printf múltiple: %c %s %d %i %u %x %X %p %%\n",
-	          c, str, n, -n, unsig, unsig, unsig, ptr);
-	printf("printf    múltiple: %c %s %d %i %u %x %X %p %%\n",
-	       c, str, n, -n, unsig, unsig, unsig, ptr);
+	// 4 %%d / %%i 
+	printf("Test 6 = %%d y %%i\n");
+	ret_ft = ft_printf("ft : %d %i %d\n", 42, -42, 0);
+	ret_pf = printf("pf : %d %i %d\n", 42, -42, 0);
+	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
 
-	return 0;
-}
+	printf("Test 7 = INT_MIN / INT_MAX\n");
+	ret_ft = ft_printf("ft : %d %d\n", INT_MIN, INT_MAX);
+	ret_pf = printf("pf : %d %d\n", INT_MIN, INT_MAX);
+	printf("Ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
+
+	// 5 %%u 
+	printf("Test 8 = %%u\n");
+	ret_ft = ft_printf("ft : %u %u\n", 0, UINT_MAX);
+	ret_pf = printf("pf : %u %u\n", 0, UINT_MAX);
+	printf("Ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
+
+	printf("Test 9 = %%u con -1\n");
+	ret_ft = ft_printf("ft : %u\n", -1);
+	ret_pf = printf("pf : %u\n", -1);
+	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
+	
+	// 6 %%x / %%X 
+	printf("Test 10 = %%x / %%X\n");
+	ret_ft = ft_printf("ft : %x %X %x\n", 255, 255, 0);
+	ret_pf = printf("pf : %x %X %x\n", 255, 255, 0);
+	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
+
+	printf("Test 11 = %%x UINT_MAX\n");
+	ret_ft = ft_printf("ft : %x\n", UINT_MAX);
+	ret_pf = printf("pf : %x\n", UINT_MAX);
+	printf("ret -> ft: %d | pf: %d\n\n", ret_ft, ret_pf);
+
+	// 7 %%p 
+	printf("Test 12 → %%p normal\n");
+	ret_ft = ft_printf("ft : %p\n", &a);
+	ret_pf = printf("pf : %p\n", &a);
+	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
+
+	printf("Test 13 = %%p NULL\n");
+	ret_ft = ft_printf("ft : %p\n", NULL);
+	ret_pf = printf("pf : %p\n", NULL);
+	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
+
+	// 8 %% percentages 
+	printf("Test 14 → %%%% (percentages)\n");
+	ret_ft = ft_printf("ft : %% %% %%\n");
+	ret_pf = printf("pf : %% %% %%\n");
+	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
+
+	// 9 total mix 
+	printf("Test 15 → total mix\n");
+	ret_ft = ft_printf(
+		"ft : %c %s %d %i %u %x %X %p %%\n",
+		'A', str_null, -42, 42, UINT_MAX, 255, 255, &a
+	);
+	ret_pf = printf(
+		"pf : %c %s %d %i %u %x %X %p %%\n",
+		'A', str_null, -42, 42, UINT_MAX, 255, 255, &a
+	);
+	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
+
+	return (0);
+}*/
