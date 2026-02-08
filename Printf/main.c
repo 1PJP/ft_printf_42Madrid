@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jezambra <jezambra@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/08 15:05:20 by jezambra          #+#    #+#             */
+/*   Updated: 2026/02/08 15:08:06 by jezambra         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*#include "ft_printf.h"
 #include <stdio.h>
 #include <limits.h>
@@ -80,7 +92,7 @@ int	main(void)
 	printf("ret -> ft: %d | pf: %d\n\n", ret_ft, ret_pf);
 
 	// 7 %%p 
-	printf("Test 12 → %%p normal\n");
+	printf("Test 12 = %%p normal\n");
 	ret_ft = ft_printf("ft : %p\n", &a);
 	ret_pf = printf("pf : %p\n", &a);
 	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
@@ -91,13 +103,13 @@ int	main(void)
 	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
 
 	// 8 %% percentages 
-	printf("Test 14 → %%%% (percentages)\n");
+	printf("Test 14 = %%%% (percentages)\n");
 	ret_ft = ft_printf("ft : %% %% %%\n");
 	ret_pf = printf("pf : %% %% %%\n");
 	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
 
 	// 9 total mix 
-	printf("Test 15 → total mix\n");
+	printf("Test 15 = total mix\n");
 	ret_ft = ft_printf(
 		"ft : %c %s %d %i %u %x %X %p %%\n",
 		'A', str_null, -42, 42, UINT_MAX, 255, 255, &a
@@ -108,5 +120,11 @@ int	main(void)
 	);
 	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
 
+	// 10 cese spaces %% %%C 
+	printf("Test 16 = %% %%c (spaces )\n");
+	ret_ft = ft_printf("ft : %%%% %c\n");
+	ret_pf = printf("pf : %%%% %c\n");
+	printf("ret = ft: %d | pf: %d\n\n", ret_ft, ret_pf);
+	
 	return (0);
 }*/

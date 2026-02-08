@@ -102,7 +102,7 @@ Esta organización mejora la comprensión del proyecto y que a futuro se puedan 
 
 Si el formato (format) es NULL, **ft_printf devuelve -1**, los formatos no soportados pueden ser ignorados o provocar error en este caso **return -1**, los casos **NULL en %s y %p** están controlados dentro de sus funciones correspondientes.
 
-Al igual que comparar el comportamineto y  valor de retorno de la funcion origuinal `printf()`
+Al igual que comparar el comportamineto y  valor de retorno de la funcion origuinal `printf()`.
 
 ## Recursos
 
